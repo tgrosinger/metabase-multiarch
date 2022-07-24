@@ -1,5 +1,5 @@
 ARG METABASE_VERSION=latest
-FROM metabase/metabase:${metabase_version} as metabase
+FROM metabase/metabase:${METABASE_VERSION} as metabase
 
 # From https://github.com/metabase/metabase/issues/13119#issuecomment-1000350647
 
