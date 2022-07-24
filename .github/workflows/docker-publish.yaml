@@ -16,6 +16,9 @@ jobs:
       packages: write
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Retrieve tag name
         id: tag
         run: echo ::set-output name=version_tag::${GITHUB_REF/refs\/tags\//}
@@ -43,6 +46,7 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v3
         with:
+          context: .
           tags: ${{ steps.meta.outputs.tags }}
           platforms: linux/amd64,linux/arm64
           push: true
